@@ -54,7 +54,32 @@ The store wants to keep customer addresses. Propose two architectures for the CU
 **HINT:** search type 1 vs type 2 slowly changing dimensions. 
 
 ```
-Your answer...
+The difference between Type 1 and Type 2 slowly changing dimensions (SCD) as mentioned above relies on the preservation of records. SCD Type 1 does not preserve history. Therefore, when a record such as an address is updated, the previous one will be overwritten and lost. On the other hand, SCD Type 2 DOES preserve record history by creating additional rows for each new record.
+
+For a Type 1 CUSTOMER_ADDRESS table (No history preservation)
+
+1. customer_id
+2. number_street
+3. unit_number
+4. city
+5. state_province
+6. postal_code
+7. country
+8. date_updated (timestamp)
+
+For a Type 2 CUSTOMER_ADDRESS table (History preservation)
+
+1. customer_id
+2. number_street
+3. unit_number
+4. city
+5. state_province
+6. postal_code
+7. country
+8. valid_from (timestamp)
+9. valid_to (timestamp)
+10. is_current (true or false)
+
 ```
 
 ***
